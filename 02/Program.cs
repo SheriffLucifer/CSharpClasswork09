@@ -5,17 +5,10 @@
 Console.Clear();
 int m = GetNumberFromUser("Введите целое число M: ", "Ошибка ввода!");
 int n = GetNumberFromUser("Введите целое число N: ", "Ошибка ввода!");
-string sumNumbers = ShowIntegers(m, n);
-Console.WriteLine($"M = {m}; N = {n} -> {sumNumbers}");
 
-// if (m < n)
-// {
-//     return ShowIntegers(m, n);
-// }
-// else
-// {
-//     return ShowIntegers(n, m) + " ";
-// }
+Console.Write($"M = {m}; N = {n} -> ");
+if (m < n) Console.WriteLine(ShowIntegers(m, n));
+else Console.Write(ShowIntegers(n, m));
 
 int GetNumberFromUser(string message, string errorMessage)
 {
@@ -35,5 +28,8 @@ string ShowIntegers(int start, int end)
     {
         return end.ToString();
     }
-    else return start + " " + ShowIntegers(start + 1, end);
+    else
+    {
+        return start + " " + ShowIntegers(start + 1, end);
+    }
 }
